@@ -13,7 +13,7 @@ import seaborn as sns
 import platform
 
 
-
+#clear
 
 def run_analysis_from_path():
     print("HELP: right click on the file -> copy as path -> paste")
@@ -38,6 +38,8 @@ def run_analysis_from_path():
     if 'issue_type' in df.columns:
         mapping = {'typical': 1, 'atypical': 2, 'non-related': 3, 'non-symptomatic': 4}
         df['issue_type'] = df['issue_type'].map(mapping)
+    
+    #ml
 
     features = ['oph', 'pist_m', 'issue_type', 'bmep', 'ng_imp', 'past_dmg']
     X = df[features].fillna(0)
@@ -56,7 +58,7 @@ def run_analysis_from_path():
 
     print("\nModel succesfully taught.")
 
-    # Saving the results to a txt
+    # Save to txt
     with open("results.txt", "w") as r:
         r.write("---STATISTICAL SUMMARY--\n")
         r.write(df[['bmep','ng_imp','rpm_max','oph']].describe().to_string())
@@ -106,6 +108,8 @@ def create_visualizations(df, importances):
     plt.title('Correlation between variables')
     plt.tight_layout()
     plt.show()
+
+#file open
 
 def open_report(file_name):
     try:
