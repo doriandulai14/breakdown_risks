@@ -17,7 +17,7 @@ import platform
 
 def run_analysis_from_path():
     print("HELP: right click on the file -> copy as path -> paste")
-    file_path = input("Please enter a valid path to a file (f.e.: C:\windows\downloads\File.exe): ")
+    file_path = input("Please enter a valid path to a file: ")
     
     file_path = file_path.strip().replace('"', '').replace("'", "")
     
@@ -73,7 +73,7 @@ def create_visualizations(df, importances):
     # 1. DIAGRAM
     plt.figure(figsize=(12, 8))
     sns.barplot(x=importances.values, y=importances.index, hue=importances.index, palette='viridis', legend=False)
-    plt.title('Which variables have the greatest impact ob failure')
+    plt.title('Which variables have the greatest impact on failure')
     plt.xlabel('Values of importance')
     plt.ylabel('Variables')
     plt.tight_layout()
